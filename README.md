@@ -1,6 +1,6 @@
-# Haifa Solutions: DevOps & Infrastructure Lab 🏗️
+# Haifa work: DevOps & Infrastructure Lab 🏗️
 
-This repository is a comprehensive collection of infrastructure and automation tasks for **haifa.solutions**. It documents my transition from a DBA to a DevOps Engineer, focusing on the "Code-First" approach to system management.
+This repository is a comprehensive collection of infrastructure and automation tasks for **haifa.work**. It documents my transition from a DBA to a DevOps Engineer, focusing on the "Code-First" approach to system management.
 
 ## 📁 Repository Structure
 
@@ -35,4 +35,4 @@ Moving away from the AWS Console. Using Terraform to declare resources as code. 
 I am a former **Database Administrator (DBA)** with 4 years of experience, now specializing in DevOps and Cloud Infrastructure. My goal is to combine my data integrity background with modern CI/CD and automation practices.
 
 **Connect with me:**
-[LinkedIn](https://www.linkedin.com/in/HaifaAlanesi) | [Website](https://haifa.solutions)
+[LinkedIn](https://www.linkedin.com/in/HaifaAlanesi) | [Website](https://haifa.work)
