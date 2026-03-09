@@ -1,7 +1,7 @@
 {
   "version": 4,
   "terraform_version": "1.14.6",
-  "serial": 31,
+  "serial": 27,
   "lineage": "cb942725-3534-3a55-2a66-a8d67119705e",
   "outputs": {
     "certificate_arn": {
@@ -147,7 +147,7 @@
                 "realtime_log_config_arn": "",
                 "response_headers_policy_id": "",
                 "smooth_streaming": false,
-                "target_origin_id": "S3-haifa-work-storage",
+                "target_origin_id": "S3-Website-Origin",
                 "trusted_key_groups": [],
                 "trusted_signers": [],
                 "viewer_protocol_policy": "redirect-to-https"
@@ -156,13 +156,13 @@
             "default_root_object": "index.html",
             "domain_name": "d3exts7ss3czkg.cloudfront.net",
             "enabled": true,
-            "etag": "ETVPDKIKX0DER",
+            "etag": "E23ZP02F085DFQ",
             "hosted_zone_id": "Z2FDTNDATAQYW2",
             "http_version": "http2",
             "id": "E1PBRO4FNPJ8U8",
             "in_progress_validation_batches": 0,
             "is_ipv6_enabled": true,
-            "last_modified_time": "2026-03-09 05:39:09.61 +0000 UTC",
+            "last_modified_time": "2026-03-07 22:13:30.226 +0000 UTC",
             "logging_config": [],
             "logging_v1_enabled": false,
             "ordered_cache_behavior": [],
@@ -173,8 +173,8 @@
                 "custom_header": [],
                 "custom_origin_config": [],
                 "domain_name": "haifa-work-storage.s3.us-east-1.amazonaws.com",
-                "origin_access_control_id": "E3QNE1PBFS1VXO",
-                "origin_id": "S3-haifa-work-storage",
+                "origin_access_control_id": "EI6CAVOJ6NLUE",
+                "origin_id": "S3-Website-Origin",
                 "origin_path": "",
                 "origin_shield": [],
                 "response_completion_timeout": 0,
@@ -197,8 +197,12 @@
             "retain_on_delete": false,
             "staging": false,
             "status": "Deployed",
-            "tags": {},
-            "tags_all": {},
+            "tags": {
+              "Environment": "production"
+            },
+            "tags_all": {
+              "Environment": "production"
+            },
             "trusted_key_groups": [
               {
                 "enabled": false,
@@ -213,7 +217,7 @@
             ],
             "viewer_certificate": [
               {
-                "acm_certificate_arn": "arn:aws:acm:us-east-1:277375108185:certificate/3e75fdc7-3d48-4eaf-a073-7d4a35cc5793",
+                "acm_certificate_arn": "arn:aws:acm:us-east-1:277375108185:certificate/5892d6fd-5638-4742-96d5-4cf52fa14848",
                 "cloudfront_default_certificate": false,
                 "iam_certificate_id": "",
                 "minimum_protocol_version": "TLSv1.2_2021",
@@ -230,6 +234,7 @@
           "dependencies": [
             "aws_acm_certificate.cert",
             "aws_cloudfront_origin_access_control.default",
+            "aws_cloudfront_origin_access_control.oac",
             "aws_s3_bucket.website_bucket"
           ]
         }
@@ -249,6 +254,30 @@
             "etag": "ETVPDKIKX0DER",
             "id": "E3QNE1PBFS1VXO",
             "name": "s3_oac",
+            "origin_access_control_origin_type": "s3",
+            "signing_behavior": "always",
+            "signing_protocol": "sigv4"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_cloudfront_origin_access_control",
+      "name": "oac",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:cloudfront::277375108185:origin-access-control/EI6CAVOJ6NLUE",
+            "description": "Allow CloudFront to access the S3 bucket",
+            "etag": "ETVPDKIKX0DER",
+            "id": "EI6CAVOJ6NLUE",
+            "name": "s3-website-oac",
             "origin_access_control_origin_type": "s3",
             "signing_behavior": "always",
             "signing_protocol": "sigv4"
@@ -341,37 +370,6 @@
             "region": "us-east-1"
           },
           "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInJlYWQiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19"
-        }
-      ]
-    },
-    {
-      "mode": "managed",
-      "type": "aws_s3_bucket_policy",
-      "name": "allow_access_from_cloudfront",
-      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
-      "instances": [
-        {
-          "schema_version": 0,
-          "attributes": {
-            "bucket": "haifa-work-storage",
-            "id": "haifa-work-storage",
-            "policy": "{\"Statement\":[{\"Action\":\"s3:GetObject\",\"Condition\":{\"StringEquals\":{\"AWS:SourceArn\":\"arn:aws:cloudfront::277375108185:distribution/E1PBRO4FNPJ8U8\"}},\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"cloudfront.amazonaws.com\"},\"Resource\":\"arn:aws:s3:::haifa-work-storage/*\",\"Sid\":\"AllowCloudFrontServicePrincipalReadOnly\"}],\"Version\":\"2012-10-17\"}",
-            "region": "us-east-1"
-          },
-          "sensitive_attributes": [],
-          "identity_schema_version": 0,
-          "identity": {
-            "account_id": "277375108185",
-            "bucket": "haifa-work-storage",
-            "region": "us-east-1"
-          },
-          "private": "bnVsbA==",
-          "dependencies": [
-            "aws_acm_certificate.cert",
-            "aws_cloudfront_distribution.s3_distribution",
-            "aws_cloudfront_origin_access_control.default",
-            "aws_s3_bucket.website_bucket"
-          ]
         }
       ]
     },
