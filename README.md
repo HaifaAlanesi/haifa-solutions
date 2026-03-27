@@ -21,7 +21,7 @@ This project demonstrates a production-grade, three-tier web architecture deploy
 * **Database:** Amazon RDS (MySQL)
 * **Automation:** GitHub Actions for automated code deployment
 
-## 🧠 Key Troubleshooting Wins (The "DevOps" Journey)
+## 🧠 Key Troubleshooting 
 * **The "Smoking Gun" (IGW Routing):** Identified a `504 Gateway Timeout` caused by missing Route Table associations for the Public Subnets. Resolved by mapping `0.0.0.0/0` to the Internet Gateway, enabling the ALB to communicate with the internet.
 * **Target Group Health:** Successfully moved Target Group status from "Unhealthy/Initial" to **Healthy (200 OK)** by aligning Security Group rules and VPC routing logic.
 * **GitOps Flow:** Implemented an automated deployment pipeline to bridge the local repository with the live AWS environment.
