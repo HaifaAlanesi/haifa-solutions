@@ -7,34 +7,7 @@
 This project demonstrates a production-grade, three-tier web architecture deployed on AWS. The infrastructure is fully automated using Terraform, focusing on high availability, security isolation, and scalable data persistence. It bridges enterprise database management with modern cloud-native orchestration.
 <img width="1408" height="768" alt="final-multi-terir" src="https://github.com/user-attachments/assets/f748bf62-802f-49ed-abb1-1c587eae261c" />
 
-🏗️ Architecture Design
-The infrastructure is partitioned into several layers to ensure maximum security and fault tolerance:
 
-Networking Layer: A custom VPC with Public Subnets for the Load Balancer and Private Subnets for application and database tiers.
-
-Compute Layer: Auto-scaling EC2 instances managed by an Application Load Balancer (ALB).
-
-Storage Layer: A Multi-AZ Amazon RDS (PostgreSQL/SQL Server) instance for automated failover and data integrity.
-
-Security Layer: Integrated AWS CloudFront for global content delivery and security groups configured with the principle of least privilege.
-
-🛠️ Tech Stack
-Provider: AWS (EC2, VPC, RDS, S3, ALB, CloudFront)
-
-IaC: Terraform
-
-OS: Ubuntu Linux
-
-Database: Amazon RDS
-
-🚀 Key Features & Implementation
-Zero-Inbound Exposure: All application and database nodes are housed in private subnets; external access is strictly managed via the ALB and CloudFront.
-
-Multi-AZ Resilience: The architecture spans multiple Availability Zones to ensure 99.9% uptime.
-
-Database Reliability: Leveraging my background as a DBA, I implemented an RDS configuration with automated snapshots and multi-region readiness.
-
-Validation: Verified end-to-end connectivity via synthetic load testing and CloudWatch monitoring.
 
 
 ## 🏗️ Architecture Features
