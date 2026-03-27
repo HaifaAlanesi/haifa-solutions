@@ -7,7 +7,8 @@
 This project demonstrates a production-grade, three-tier web architecture deployed on AWS. The infrastructure is fully automated using Terraform, focusing on high availability, security isolation, and scalable data persistence. It bridges enterprise database management with modern cloud-native orchestration.
 <img width="1408" height="768" alt="final-multi-terir" src="https://github.com/user-attachments/assets/f748bf62-802f-49ed-abb1-1c587eae261c" />
 
-
+# Architecture Design
+The infrastructure is partitioned into isolated layers to ensure maximum security and fault tolerance:
 
 
 ## 🏗️ Architecture Features
